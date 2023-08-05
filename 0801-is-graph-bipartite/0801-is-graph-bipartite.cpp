@@ -6,12 +6,14 @@ public:
         int m = graph[0].size();
         queue<int> q;
         q.push(start);
-      
+        color[start]=0; //use the 2 colors 1 and 0
         while(!q.empty()){
             int node = q.front();
             q.pop();
-
-            for(auto it: graph[node]){
+            cout<<endl;
+                                         // 0    1      2       
+            for(auto it: graph[node]){  //[123] [02]  [013]
+                cout<<it<<" ";
                 if(color[it]==-1){
                     color[it]=!color[node];
                     q.push(it);
@@ -21,7 +23,7 @@ public:
                 }
             }
         }
-return true;
+        return true;
     }
 
     bool isBipartite(vector<vector<int>>& graph) {
